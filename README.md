@@ -17,14 +17,14 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-sync-jar');
 ```
 
-## The "sync_jar" task
+## The "syncjar" task
 
 ### Overview
-In your project's Gruntfile, add a section named `sync_jar` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `syncjar` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  sync_jar: {
+  syncjar: {
     options: {
       // Task-specific options go here.
     },
@@ -41,7 +41,7 @@ grunt.initConfig({
 
 ```js
 grunt.initConfig({
-  sync_jar: {
+  syncjar: {
     default_options: {
       files: [{
         cwd: 'test/fixtures/app/',

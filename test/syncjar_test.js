@@ -22,7 +22,7 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-exports.sync_jar = {
+exports.syncjar = {
   setUp: function(done) {
     // setup here if necessary
     done();

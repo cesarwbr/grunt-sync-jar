@@ -17,7 +17,7 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('sync_jar', 'Task to synchronize your project with a compacted jar.', function() {
+  grunt.registerMultiTask('syncjar', 'Task to synchronize your project with a compacted jar.', function() {
 
     // Iterate over all specified file groups.
     this.files.map(function(filepath) {
