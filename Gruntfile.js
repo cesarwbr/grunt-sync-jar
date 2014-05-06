@@ -34,7 +34,7 @@ module.exports = function(grunt) {
         files: [{
           cwd: 'test/fixtures/app/',
           src: ['**/*.js'],
-          jar: '/home/cesar/dev/frontend/grunt/plugins/grunt-sync-jar/test/dest/test.jar'
+          jar: 'test/dest/test.jar'
         }]
       }
     },
