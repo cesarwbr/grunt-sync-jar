@@ -21,26 +21,16 @@ module.exports = function(grunt) {
 
     // Iterate over all specified file groups.
     this.files.map(function(filepath) {
-      // for (var name in filepath) {
-      //   if (filepath.hasOwnProperty(name)) {
-      //     grunt.log.writeln("(" + name + ") Value: " + filepath[name]);
-      //   } else {
-      //     grunt.log.writeln(name); // toString or something else
-      //   }
-      // }
+      var absLink = shell.exec('readlink -f ' + filepath.jar);
+      absLink = absLink.output.replace(/(\r\n|\n|\r)/gm, "");
 
       filepath.src.map(function(src) {
-        var mysrc = path.join(filepath.cwd, src);
-        grunt.log.writeln('src=' + src);
-        var absLink = shell.exec('readlink -f ' + filepath.jar);
-        absLink = absLink.output.replace(/(\r\n|\n|\r)/gm,"");
-        grunt.log.writeln('cmd=' + '(cd ' + filepath.cwd + ' &&  jar uf ' + absLink + ' ' + src + ')');
+        if(!grunt.file.isDir(src)) {
+          grunt.log.writeln('Copying ' + src + ' -> ' + absLink);
 
-        shell.exec('(cd ' + filepath.cwd + ' &&  jar uf ' + absLink + ' ' + src + ')');
-        //grunt.file.copy(mysrc, 'tmp/teste.js');
+          shell.exec('(cd ' + filepath.cwd + ' &&  jar uf ' + absLink + ' ' + src + ')');
+        }
       });
-      // Read file source.
-      grunt.log.writeln('File: ' + filepath.cwd);
     });
   });
 

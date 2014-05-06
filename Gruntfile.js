@@ -33,7 +33,7 @@ module.exports = function(grunt) {
       default_options: {
         files: [{
           cwd: 'test/fixtures/app/',
-          src: ['**/*.js'],
+          src: ['**'],
           jar: 'test/dest/test.jar'
         }]
       }
