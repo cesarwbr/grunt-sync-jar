@@ -9,7 +9,6 @@
 'use strict';
 
 var path = require('path');
-var fs = require('promised-io/fs');
 var shell = require('shelljs');
 
 module.exports = function(grunt) {
