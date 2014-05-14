@@ -33,7 +33,7 @@ exports.syncjar = {
     var actual = grunt.file.read('test/dest/test.jar');
     var expected = grunt.file.read('test/expected/test.jar');
     test.equal(actual, expected, 'should describe what the default behavior is.');
-
+    //test.equal(1, 1, 'teste');
     test.done();
   }
 };

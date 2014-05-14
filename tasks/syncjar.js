@@ -27,8 +27,8 @@ module.exports = function(grunt) {
         var promises = [];
 
         filepath.src.map(function(src) {
-          var deferred = Q.defer();
           if (!grunt.file.isDir(src)) {
+            var deferred = Q.defer();
             grunt.log.writeln('Copying ' + src + ' -> ' + absLink);
             var exec = shell.exec('(cd ' + filepath.cwd + ' &&  jar uf ' +
               absLink + ' ' + src + ')', function(code, output) {
@@ -42,6 +42,7 @@ module.exports = function(grunt) {
         Q.all(promises).spread(function() {
           shell.exec('du -hsb test/dest/test.jar');
           grunt.log.writeln('All done!');
+          done();
         });
 
 
