@@ -8,9 +8,9 @@
 
 'use strict';
 
-var path = require('path');
 var shell = require('shelljs');
 var Q = require('q');
+var chalk = require('chalk');
 
 module.exports = function(grunt) {
 
@@ -32,15 +32,18 @@ module.exports = function(grunt) {
             grunt.log.writeln('Copying ' + src + ' -> ' + absLink);
             var exec = shell.exec('(cd ' + filepath.cwd + ' &&  jar uf ' +
               absLink + ' ' + src + ')', function(code, output) {
+                grunt.log.write(src + '...');
+                grunt.log.ok();
                 deferred.resolve('ok');
               });
             promises.push(deferred.promise);
           }
 
         });
-        grunt.log.writeln('All promises: ' + promises.length);
+
         Q.all(promises).spread(function() {
-          shell.exec('du -hsb test/dest/test.jar');
+          //shell.exec('du -hsb test/dest/test.jar');
+          grunt.log.writeln('Copied ' + chalk.cyan(promises.length) + (promises.length === 1 ? ' file' : ' files'));
           grunt.log.writeln('All done!');
           done();
         });
