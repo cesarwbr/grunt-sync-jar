@@ -42,8 +42,8 @@ module.exports = function(grunt) {
         });
 
         Q.all(promises).spread(function() {
-          //shell.exec('du -hsb test/dest/test.jar');
-          grunt.log.writeln('Copied ' + chalk.cyan(promises.length) + (promises.length === 1 ? ' file' : ' files'));
+          grunt.log.writeln('Copied ' + chalk.cyan(promises.length) + (
+            promises.length === 1 ? ' file' : ' files'));
           grunt.log.writeln('All done!');
           done();
         });
