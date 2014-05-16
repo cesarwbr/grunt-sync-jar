@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "shelljs": "~0.2.6",
-    "q": "~1.0.1",
     "chalk": "~0.4.0"
   },
   "devDependencies": {

@@ -9,7 +9,6 @@
 'use strict';
 
 var shell = require('shelljs');
-var Q = require('q');
 var chalk = require('chalk');
 
 module.exports = function(grunt) {
@@ -29,7 +28,7 @@ module.exports = function(grunt) {
       var absLink = shell.exec('readlink -f ' + options.jar);
       absLink = absLink.output.replace(/(\r\n|\n|\r)/gm, "");
 
-      grunt.log.writeln('Sync: ' + chalk.cyan(options.cwd) + ' -> ' + chalk.cyan(absLink));
+      grunt.log.writeln('Sync: ' + chalk.cyan(options.cwd + options.src) + ' -> ' + chalk.cyan(absLink));
 
       var exec = shell.exec('(cd ' + options.cwd + ' && exec jar uf ' +
             absLink + ' ' + options.src + ')');
