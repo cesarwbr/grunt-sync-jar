@@ -19,38 +19,20 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('syncjar',
     'Task to synchronize your project with a compacted jar.', function() {
-      var done = this.async();
-      // Iterate over all specified file groups.
-      this.files.map(function(filepath) {
-        var absLink = shell.exec('readlink -f ' + filepath.jar);
-        absLink = absLink.output.replace(/(\r\n|\n|\r)/gm, "");
-        var promises = [];
 
-        filepath.src.map(function(src) {
-          if (!grunt.file.isDir(src)) {
-            var deferred = Q.defer();
-            grunt.log.writeln('Copying ' + src + ' -> ' + absLink);
-            var exec = shell.exec('(cd ' + filepath.cwd + ' &&  jar uf ' +
-              absLink + ' ' + src + ')', function(code, output) {
-                grunt.log.write(src + '...');
-                grunt.log.ok();
-                deferred.resolve('ok');
-              });
-            promises.push(deferred.promise);
-          }
-
-        });
-
-        Q.all(promises).spread(function() {
-          grunt.log.writeln('Copied ' + chalk.cyan(promises.length) + (
-            promises.length === 1 ? ' file' : ' files'));
-          grunt.log.writeln('All done!');
-          done();
-        });
-
-
+      var options = this.options({
+        cwd: '.',
+        src: '**',
+        jar: ''
       });
 
+      var absLink = shell.exec('readlink -f ' + options.jar);
+      absLink = absLink.output.replace(/(\r\n|\n|\r)/gm, "");
+
+      grunt.log.writeln('Sync: ' + chalk.cyan(options.cwd) + ' -> ' + chalk.cyan(absLink));
+
+      var exec = shell.exec('(cd ' + options.cwd + ' && exec jar uf ' +
+            absLink + ' ' + options.src + ')');
 
     });
 

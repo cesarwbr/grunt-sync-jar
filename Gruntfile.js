@@ -32,11 +32,11 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     syncjar: {
       default_options: {
-        files: [{
+        options: {
           cwd: 'test/fixtures/app/',
-          src: ['**'],
+          src: '**',
           jar: 'test/dest/test.jar'
-        }]
+        }
       }
     },
 

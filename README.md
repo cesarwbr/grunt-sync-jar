@@ -27,10 +27,7 @@ grunt.initConfig({
   syncjar: {
     options: {
       // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+    }
   },
 });
 ```
@@ -43,11 +40,11 @@ grunt.initConfig({
 grunt.initConfig({
   syncjar: {
     default_options: {
-      files: [{
+      options: {
         cwd: 'test/fixtures/app/',
-        src: ['**'],
+        src: '**',
         jar: 'test/dest/test.jar'
-      }]
+      }
     }
   }
 });
