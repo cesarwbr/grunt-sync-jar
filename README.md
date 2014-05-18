@@ -1,4 +1,4 @@
-# grunt-sync-jar [![NPM version][npm-image]][npm-url]
+# grunt-sync-jar [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
 
 > Task to synchronize your project with a compacted jar.
 
@@ -56,5 +56,6 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 _(Nothing yet)_
 
+[downloads-image]: http://img.shields.io/npm/dm/grunt-sync-jar.svg
 [npm-url]: https://www.npmjs.org/package/grunt-sync-jar
 [npm-image]: http://img.shields.io/npm/v/grunt-sync-jar.svg
