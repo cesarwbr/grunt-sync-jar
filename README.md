@@ -55,3 +55,6 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 _(Nothing yet)_
+
+[npm-url]: https://www.npmjs.org/package/grunt-sync-jar
+[npm-image]: http://img.shields.io/npm/v/grunt-sync-jar.svg
