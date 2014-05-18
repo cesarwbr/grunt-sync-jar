@@ -1,4 +1,4 @@
-# grunt-sync-jar
+# grunt-sync-jar [![NPM version][npm-image]][npm-url]
 
 > Task to synchronize your project with a compacted jar.
 
